@@ -28,11 +28,6 @@ jobs:
         with:
           openshift-install: "${{secrets.OCP_CLIENT_VERSION}}"
           oc: "${{secrets.OCP_CLIENT_VERSION}}"
-          # Search through these projects' GitHub releases, instead of the OpenShift Mirror.
-          # https://docs.github.com/en/actions/reference/authentication-in-a-workflow
-          source: "github"
-          # Using GitHub token from the github context
-          github_pat: ${{ github.token }}
 
       - name: Create OpenShift Cluster
         run: openshift-install create cluster --dir=ocp-artifact/
